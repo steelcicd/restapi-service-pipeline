@@ -20,6 +20,7 @@ pipeline {
         }
         stage('Build and push Docker Image') {
             steps {
+                sh "chmod +x ${env.WORKSPACE}/push-image.sh"
                 sh "${env.WORKSPACE}/push-image.sh ${AWS_REGION} ${PROJECT_REPO_URL} ${env.JOB_BASE_NAME}"
             }
         }
