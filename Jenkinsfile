@@ -8,9 +8,16 @@ pipeline {
                 url: 'https://github.com/steelcicd/restapi-service'
             }
         }
-        stage('Build') { 
+        stage('Build project') { 
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                echo 'Building maven project...'
+                sh 'mvn -B -DskipTests clean package'
+                echo 'Maven build successful!' 
+            }
+        }
+        stage('Build and push Docker Image') {
+            steps {
+                sh './push-image.sh'
             }
         }
     }
