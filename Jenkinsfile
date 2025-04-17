@@ -17,6 +17,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
                 echo 'Maven build successful!' 
             }
+        }
         stage('Build and push Docker Image') {
             steps {
                 sh "./push-image.sh ${AWS_REGION} ${PROJECT_REPO_URL} ${env.JOB_BASE_NAME}"
