@@ -22,7 +22,7 @@ pipeline {
         stage('Build and push Docker Image') {
             steps {
                 sh "chmod +x ${env.WORKSPACE}/push-image.sh"
-                sh "${env.WORKSPACE}/push-image.sh ${AWS_REGION} ${ECR_REGISTRY_URL} ${env.JOB_BASE_NAME}"
+                sh "${env.WORKSPACE}/push-image.sh ${AWS_REGION} ${ECR_REGISTRY_URL}"
             }
         }
     }
