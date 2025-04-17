@@ -1,6 +1,5 @@
 def AWS_REGION = 'ap-south-1'
 def PROJECT_REPO_URL = 'https://github.com/steelcicd/restapi-service'
-def MAVEN_VERSION = 0.0.0
 
 pipeline {
     agent { label 'slave-1' }
